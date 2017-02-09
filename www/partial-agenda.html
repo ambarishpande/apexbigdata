@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col m10 offset-m1">
+      <h4 style="color:#63d0df;" class="center-align">AGENDA</h4>
+    
+      <h5>Conference</h5>
+      <h5>Day 1 (10 Feb 2017)</h5>
+      <div ng-controller="agendaController">
+          
+          <div  ng-repeat="(key,value) in talks | groupBy:'seq' " >
+              <div ng-show=key><hr></div>
+              <a ng-repeat="talk in value " ui-sref="details({id:{{talk.id}}})" >
+              <div class="card-panel" style="color:white;background-color:{{talk.color}}">
+                 <div ng-bind="talk.track"></div>
+                 <div ng-bind-html="talk.title"></div>
+                 <div ng-bind-html="talk.title2"></div>
+                 <div ng-bind-html="talk.time"></div>
+              </div>
+              </a>
+          </div>
+      <h5>Workshop</h5>
+      
+      <h5>Day 2 (11 Feb 2017)</h5>
+          
+          <div ng-repeat="session in workshop" >
+               <div class="card-panel" style="color:white;background-color:{{session.color}}">
+                 <div ng-bind-html="session.title"></div>
+                 <div ng-bind-html="session.time"></div>
+              </div>
+          </div>
+              
+      </div>      
+    </div>
+</div>
